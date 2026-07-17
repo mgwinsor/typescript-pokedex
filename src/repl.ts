@@ -27,7 +27,7 @@ export function startREPL(state: State) {
     try {
       cmd.callback(state);
     } catch (e) {
-      console.log(e);
+      console.log((e as Error).message);
     }
 
     state.readline.prompt();
