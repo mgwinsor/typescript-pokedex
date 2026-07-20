@@ -1,6 +1,6 @@
 import { State } from "./state.js";
 
-export async function commandMapForward(state: State) {
+export async function commandMapForward(state: State, ...args: string[]) {
   const locations = await state.pokeAPI.fetchLocations(state.nextLocationsURL);
 
   state.nextLocationsURL = locations.next;
@@ -11,7 +11,7 @@ export async function commandMapForward(state: State) {
   }
 }
 
-export async function commandMapBack(state: State) {
+export async function commandMapBack(state: State, ...args: string[]) {
   if (!state.prevLocationsURL) {
     throw new Error("you're on the first page");
   }

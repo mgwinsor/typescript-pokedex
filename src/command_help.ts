@@ -1,6 +1,6 @@
 import { State } from "./state.js";
 
-export function commandHelp(state: State) {
+export function commandHelp(state: State, ...args: string[]) {
   console.log();
   console.log("Welcome to the Pokedex!");
   console.log("Usage:");
