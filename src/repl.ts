@@ -13,7 +13,7 @@ export function startREPL(state: State) {
     }
 
     const commandName = words[0];
-    const commandArgs = words.splice(1);
+    const args = words.splice(1);
 
     const commands = getCommands();
     const cmd = commands[commandName];
@@ -26,7 +26,7 @@ export function startREPL(state: State) {
     }
 
     try {
-      cmd.callback(state, ...commandArgs);
+      cmd.callback(state, ...args);
     } catch (e) {
       console.log((e as Error).message);
     }
